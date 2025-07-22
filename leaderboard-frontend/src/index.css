@@ -1,0 +1,345 @@
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* --- CSS Variables --- */
+:root {
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --border-color: #eee;
+}
+
+/* --- Theme Color Definitions --- */
+/* These variables will be applied based on the theme class on the main container */
+
+.theme-weekly {
+    --bg-color: #fdf6e7;
+    --card-bg: #fff;
+    --primary-color: #ff8c00;
+    --secondary-color: #ffae42;
+    --text-color: #4a4a4a;
+    --light-text: #777;
+    --rank1-grad: linear-gradient(145deg, #fff0a3, #ffd700);
+    --rank2-grad: linear-gradient(145deg, #e6e6e6, #c0c0c0);
+    --rank3-grad: linear-gradient(145deg, #e6ac83, #cd7f32);
+}
+
+.theme-hourly {
+    --bg-color: #f3e8ff;
+    --card-bg: #fff;
+    --primary-color: #9d4edd;
+    --secondary-color: #c77dff;
+    --text-color: #3c1361;
+    --light-text: #7b5e97;
+    --rank1-grad: linear-gradient(145deg, #d8b4fe, #a78bfa);
+    --rank2-grad: linear-gradient(145deg, #e9d5ff, #c084fc);
+    --rank3-grad: linear-gradient(145deg, #f3e8ff, #d6bcfa);
+}
+
+.theme-wealth {
+    --bg-color: #fffbeb;
+    --card-bg: #fff;
+    --primary-color: #ca8a04;
+    --secondary-color: #eab308;
+    --text-color: #574818;
+    --light-text: #8a7645;
+    --rank1-grad: linear-gradient(145deg, #fef08a, #eab308);
+    --rank2-grad: linear-gradient(145deg, #fde68a, #ca8a04);
+    --rank3-grad: linear-gradient(145deg, #fef3c7, #eab308);
+}
+
+/* --- Global Styles --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 2rem 1rem;
+    transition: background-color 0.3s;
+}
+
+.main-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.app-header h1 {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* --- General Card Styling --- */
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.card-title {
+    margin-top: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* --- Theme Switcher Component --- */
+.theme-switcher {
+    text-align: center;
+}
+
+.theme-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.btn-theme {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--border-color);
+    background: transparent;
+    color: var(--light-text);
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-theme.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* --- User Management Component --- */
+.user-management {
+    text-align: center;
+}
+
+.form-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.input-field,
+.select-field {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    flex-grow: 1;
+    min-width: 200px;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    background: var(--secondary-color);
+}
+
+.btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* --- Notification Banners --- */
+.notification {
+    text-align: center;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.message {
+    background-color: #e6ffed;
+    color: #006421;
+}
+
+.error {
+    background-color: #ffebe6;
+    color: #c50000;
+}
+
+/* --- Leaderboard Component --- */
+.leaderboard-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.settlement-time {
+    font-size: 0.9rem;
+    color: var(--light-text);
+}
+
+/* Podium Styles */
+.podium {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    min-height: 220px;
+}
+
+.podium-item {
+    width: 120px;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 12px;
+    position: relative;
+    transition: transform 0.3s ease, background 0.3s;
+}
+
+.podium-item:hover {
+    transform: translateY(-10px);
+}
+
+.podium-rank-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: var(--primary-color);
+}
+
+.rank-1 {
+    order: 2;
+    height: 180px;
+    background: var(--rank1-grad);
+}
+
+.rank-2 {
+    order: 1;
+    height: 150px;
+    background: var(--rank2-grad);
+}
+
+.rank-3 {
+    order: 3;
+    height: 130px;
+    background: var(--rank3-grad);
+}
+
+.podium .avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    margin: 0.5rem auto;
+    border: 3px solid white;
+}
+
+.podium-name {
+    font-weight: 600;
+    margin: 0.5rem 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: var(--text-color);
+}
+
+.podium-points {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Leaderboard List Styles */
+.leaderboard-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+    margin-bottom: 0.5rem;
+}
+
+.list-item:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.list-rank {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--light-text);
+    width: 40px;
+    text-align: center;
+}
+
+.list-user-info {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.list-item .avatar {
+    width: 45px;
+    height: 45px;
+    margin-right: 1rem;
+}
+
+.list-name {
+    font-weight: 600;
+}
+
+.list-points {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* --- Avatar Component --- */
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.mystery-avatar {
+    background: #333;
+    color: white;
+    font-size: 2rem;
+}
