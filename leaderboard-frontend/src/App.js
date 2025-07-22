@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 // --- Configuration ---
-const API_URL = 'https://leaderboard-backend-fz39.onrender.com'; // Your backend URL
+const API_URL = 'https://leaderboard-backend-fz39.onrender.com/api'; // Your backend URL
 const USERS_PER_PAGE = 7; // Number of users to display per page in the list
 
 // --- Helper & UI Components ---
